@@ -142,21 +142,15 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 20,),
             Text(" Extra Services ;)",style: GoogleFonts.slabo13px(fontSize: 20),),
             SizedBox(height: mq.height*.2,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ElevatedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (_)=>StatusPage()));
-                },
-                    style: ElevatedButton.styleFrom(
-                      shape: const StadiumBorder(),
-                      minimumSize: Size(mq.width*.4, mq.height*.06),
-                      backgroundColor: Colors.lightBlueAccent.shade200,
-                    ),
-                    child: Text("Check current service status",style: GoogleFonts.oswald(fontSize: 20,color: Colors.black),)),
-              ],
-            )
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>StatusPage()));
+            },
+                style: ElevatedButton.styleFrom(
+                  shape: const StadiumBorder(),
+                  minimumSize: Size(mq.width*.4, mq.height*.06),
+                  backgroundColor: Colors.lightBlueAccent.shade200,
+                ),
+                child: Text("Check current service status",style: GoogleFonts.oswald(fontSize: 20,color: Colors.black),))
           ],
         ),
       ),
