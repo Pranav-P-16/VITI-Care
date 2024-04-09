@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "332837336527",
+    "project_id": "viti-care-dc277",
+    "storage_bucket": "viti-care-dc277.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332837336527:android:9baee12d81db719eb68eba",
+        "android_client_info": {
+          "package_name": "com.error404.viticare.viticare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332837336527-69173dfgl6d4dk46svq1bs9mjttq9i1g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.error404.viticare.viticare",
+            "certificate_hash": "5b379e58dba8552abb5ad4a184a629f3e0875655"
+          }
+        },
+        {
+          "client_id": "332837336527-ed8gd8hp1v7g1hnnqp346tp5i52g4mv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUFF4tznYyA2hokyXMldhB-JTsCvoyhUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332837336527-ed8gd8hp1v7g1hnnqp346tp5i52g4mv6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "332837336527-p16k1l9co8hn5e6leu6qedv814bfcri8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.error404.viticare.viticare"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
