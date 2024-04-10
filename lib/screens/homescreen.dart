@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:viticare/helpers/dialogues.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:viticare/screens/generateqr.dart';
+import 'package:viticare/screens/aboutpage.dart';
+import 'package:viticare/screens/furniturelayout.dart';
 import 'package:viticare/screens/newloginpage.dart';
 import 'package:viticare/screens/scanqr.dart';
 import 'package:viticare/screens/statuspage.dart';
@@ -27,6 +26,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    APIs.getSelfinfo();
     var greeting="Good Morning";
     DateTime now = DateTime.now();
     int nowHour = now.hour;
@@ -48,15 +48,35 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Row(
               children: [
-                Text(greeting+" "+APIs.user.displayName.toString().split(" ")[0],style: GoogleFonts.oswald(fontSize: 30),
-      ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.location_on,color: Colors.black,),
+                        Text("VIT Vellore",style: GoogleFonts.oswald(fontSize: 15)),
+                      ],
+                    ),
+                    Text(greeting+" "+APIs.user.displayName.toString().split(" ")[0],style: GoogleFonts.oswald(fontSize: 30),
+                          ),
+                  ],
+                ),
                 Spacer(),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(mq.height*.2),
-                  child: Image.network(APIs.user.photoURL.toString(),height: 50,width: 50,)),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context,MaterialPageRoute(builder: (_)=> ABoutPage()));
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(mq.height*.2),
+                    child: Image.network(APIs.user.photoURL.toString(),height: 50,width: 50,)),
+                ),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: mq.height*.05,),
+            Center(child: Text("How can I Help you ;)",style: GoogleFonts.oswald(fontSize: 35),)),
+            SizedBox(height: mq.height*.05,),
             Text(" Services",style: GoogleFonts.slabo13px(fontSize: 20),),
             SizedBox(height: 10,),
             Container(
@@ -85,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Card(
                     child: InkWell(
                       onTap: (){
-                        Dialogues.showToast(context, "Under Dev...");
+                        Navigator.push(context, MaterialPageRoute(builder: (_)=>FurnitureDesc()));
                       },
                       child: Stack(
                         children: [Container(
@@ -139,18 +159,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
-            Text(" Extra Services ;)",style: GoogleFonts.slabo13px(fontSize: 20),),
-            SizedBox(height: mq.height*.2,),
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (_)=>StatusPage()));
-            },
-                style: ElevatedButton.styleFrom(
-                  shape: const StadiumBorder(),
-                  minimumSize: Size(mq.width*.4, mq.height*.06),
-                  backgroundColor: Colors.lightBlueAccent.shade200,
-                ),
-                child: Text("Check current service status",style: GoogleFonts.oswald(fontSize: 20,color: Colors.black),))
+            SizedBox(height: 30,),
+            Center(
+              child: ElevatedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (_)=>StatusPage()));
+              },
+                  style: ElevatedButton.styleFrom(
+                    shape: const StadiumBorder(),
+                    minimumSize: Size(mq.width*.4, mq.height*.06),
+                    backgroundColor: Colors.lightBlueAccent.shade200,
+                  ),
+                  child: Text("Check current service status",style: GoogleFonts.oswald(fontSize: 20,color: Colors.black),)),
+            ),
+            SizedBox(height: mq.height*.04,),
+            Center(
+              child: ElevatedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (_)=>StatusPage()));
+              },
+                  style: ElevatedButton.styleFrom(
+                    shape: const StadiumBorder(),
+                    minimumSize: Size(mq.width*.4, mq.height*.06),
+                    backgroundColor: Colors.lightBlueAccent.shade200,
+                  ),
+                  child: Text("Cleaning history",style: GoogleFonts.oswald(fontSize: 20,color: Colors.black),)),
+            ),
           ],
         ),
       ),

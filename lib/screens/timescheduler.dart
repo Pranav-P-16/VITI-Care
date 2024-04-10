@@ -98,12 +98,12 @@ class _TimeSchedulerState extends State<TimeScheduler> {
         MaterialButton(onPressed: () async {
           APIs.getSelfinfo();
           if (APIs.me.isRaised==false) {
+            Dialogues.showSnackBar(context, "Room Cleaning have been applied", Colors.green);
             Navigator.pop(context);
             Navigator.pop(context);
           await APIs.raiseToken();
-          await APIs.updateTokenStatus(true).then((value) {
-            Dialogues.showSnackBar(context, "Room Cleaning have been applied", Colors.green);
-          });} else {
+          await APIs.updateTokenStatus(true);
+        } else {
             Navigator.pop(context);
             Navigator.pop(context);
             Dialogues.showSnackBar(context, "You've already applied once", Colors.red);
